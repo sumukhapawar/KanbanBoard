@@ -2,13 +2,12 @@ import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
 import { Paper, Typography } from "@mui/material";
 
-export default function Card({ title, parent, index }) {
+export default function Card({ title, parent }) {
   const { attributes, listeners, setNodeRef, transform, isDragging } =
     useDraggable({
       id: title,
       data: {
         title,
-        index,
         parent,
       },
     });

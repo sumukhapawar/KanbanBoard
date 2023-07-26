@@ -21,8 +21,8 @@ export default function Column({ title, items }) {
       <Typography component="h2" variant="h4">
         {title}
       </Typography>
-      {items.map((item, key) => {
-        return <Card title={item} key={item} parent={title} index={key} />;
+      {items.map((item) => {
+        return <Card title={item} key={item} parent={title} />;
       })}
     </Paper>
   );
