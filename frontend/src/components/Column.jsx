@@ -1,8 +1,9 @@
 import { Paper, Typography } from "@mui/material";
 import { useDroppable } from "@dnd-kit/core";
 import Card from "./Card";
+import AddTaskBtn from "./AddTask";
 
-export default function Column({ title, items }) {
+export default function Column({ title, items, addTask }) {
   const { setNodeRef, isOver } = useDroppable({
     id: title,
   });
@@ -24,6 +25,7 @@ export default function Column({ title, items }) {
       {items.map((item) => {
         return <Card title={item} key={item} parent={title} />;
       })}
+      {title === "ToDo" ? <AddTaskBtn addTask={addTask} /> : null}
     </Paper>
   );
 }

@@ -12,6 +12,10 @@ function App() {
   const [progressItems, setProgressItems] = useState(["Eat"]);
   const [doneItems, setDoneItems] = useState([]);
 
+  const addTask = (item) => {
+    setTodoItems([...todoItems, item]);
+  }
+
   const handleDragEnd = (event) => {
     const container = event.over.id;
     const title = event.active.data.current.title;
@@ -40,12 +44,6 @@ function App() {
     }
   };
 
-  // useEffect(() => {
-  //   console.log(todoItems);
-  //   console.log(progressItems);
-  //   console.log(doneItems);
-  // }, [todoItems, progressItems, doneItems]);
-
   return (
     <React.Fragment>
       <Container fixed>
@@ -53,7 +51,7 @@ function App() {
           <Box sx={{ flexGrow: 1 }}>
             <Grid container sx={{ my: 2 }} spacing={2}>
               <Grid xs={4}>
-                <Column title="ToDo" items={todoItems} />
+                <Column title="ToDo" items={todoItems} addTask={addTask} />
               </Grid>
               <Grid xs={4}>
                 <Column title="Progress" items={progressItems} />
