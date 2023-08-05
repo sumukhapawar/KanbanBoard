@@ -14,14 +14,19 @@ function App() {
 
   const addTask = (item) => {
     setTodoItems([...todoItems, item]);
-  }
+  };
 
   const handleDragEnd = (event) => {
+    // Get the ID of the container where the item was dropped
     const container = event.over.id;
+    // Get the title of the dragged item
     const title = event.active.data.current.title;
+    // Get the ID of the parent container
     const parent = event.active.data.current.parent;
 
+    // If the item was dropped into a different container than its parent
     if (container !== parent) {
+      // Add the items to the respective lists
       if (container === "ToDo") {
         setTodoItems([...todoItems, title]);
       } else if (container === "Progress") {
@@ -31,7 +36,9 @@ function App() {
       }
     }
 
+    // If the item was dropped into a different container than its parent
     if (container !== parent) {
+      // Remove the item from the respective lists
       if (parent === "ToDo") {
         setTodoItems((prevItems) => prevItems.filter((item) => item !== title));
       } else if (parent === "Progress") {

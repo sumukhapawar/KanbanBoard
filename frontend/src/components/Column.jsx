@@ -8,6 +8,7 @@ export default function Column({ title, items, addTask }) {
     id: title,
   });
 
+  // Add blue border when an item is dragged over the column
   const style = { border: isOver ? "1px solid blue" : undefined };
 
   return (
@@ -17,7 +18,7 @@ export default function Column({ title, items, addTask }) {
       sx={{ p: 3 }}
       elevation={10}
       component="div"
-      ref={setNodeRef}
+      ref={setNodeRef} // Set the reference to the DOM node for the droppable column
     >
       <Typography component="h2" variant="h4">
         {title}
@@ -25,6 +26,7 @@ export default function Column({ title, items, addTask }) {
       {items.map((item) => {
         return <Card title={item} key={item} parent={title} />;
       })}
+      {/* Render the AddTaskBtn component only for the "ToDo" column */}
       {title === "ToDo" ? <AddTaskBtn addTask={addTask} /> : null}
     </Paper>
   );

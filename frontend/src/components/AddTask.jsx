@@ -2,7 +2,7 @@ import { Button, TextField } from "@mui/material";
 import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
 import { useState } from "react";
 
-export default function AddTask({addTask}) {
+export default function AddTask({ addTask }) {
   const [task, setTask] = useState("");
 
   const handleSubmit = (e) => {
@@ -10,7 +10,7 @@ export default function AddTask({addTask}) {
 
     addTask(task);
     setTask("");
-  }
+  };
 
   return (
     <form onSubmit={handleSubmit}>

@@ -13,7 +13,9 @@ export default function Card({ title, parent }) {
     });
 
   const style = {
+    // Convert transform object to a valid CSS transform string
     transform: CSS.Translate.toString(transform),
+    // Add green border when the card is being dragged
     border: isDragging ? "2px solid green" : undefined,
   };
 
@@ -21,7 +23,7 @@ export default function Card({ title, parent }) {
     <Paper
       sx={{ p: 2, my: 2 }}
       style={style}
-      ref={setNodeRef}
+      ref={setNodeRef} // Set the reference to the DOM node for the draggable card
       {...listeners}
       {...attributes}
       elevation={3}
